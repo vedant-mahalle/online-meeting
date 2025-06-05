@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1f2937;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .control-button {
+    @apply p-3 rounded-lg transition-colors;
+  }
+
+  .control-button:hover {
+    @apply bg-gray-600;
+  }
+
+  .control-button.active {
+    @apply bg-blue-600;
+  }
+
+  .control-button.danger {
+    @apply bg-red-600;
+  }
+
+  .control-button.danger:hover {
+    @apply bg-red-700;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive video grid */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-grid.two-participants {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .video-grid.two-participants {
+    grid-template-columns: 1fr 1fr;
+  }
+}
